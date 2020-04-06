@@ -154,52 +154,6 @@ pre_install_docker_compose(){
     echo "ssrpanel_key = ${ssrpanel_key}"
     echo "---------------------------"
     echo
-   # Set Setting if the node go downwith panel
-    echo "Setting Myqlhost,  u can pass this setting u chosen use webapi"
-    read -p "(v2ray_downWithPanel :" v2ray_mysqlhost
-    [ -z "${v2ray_mysqlhost}" ] && v2ray_mysqlhost=""
-    echo
-    echo "---------------------------"
-    echo "v2ray_mysqlhost = ${v2ray_mysqlhost}"
-    echo "---------------------------"
-    echo
-    # Set Setting if the node go downwith panel
-    echo "Setting MysqlPort u can pass this setting u chosen use webapi"
-    read -p "(v2ray_mysqlport (Default 3306):" v2ray_mysqlport
-    [ -z "${v2ray_mysqlport}" ] && v2ray_mysqlport=3306
-    echo
-    echo "---------------------------"
-    echo "v2ray_mysqlport = ${v2ray_mysqlport}"
-    echo "---------------------------"
-    echo
-    # Set Setting if the node go downwith panel
-    echo "Setting MysqlUser u can pass this setting if u use webapi"
-    read -p "(v2ray_myqluser (Default root):" v2ray_myqluser
-    [ -z "${v2ray_myqluser}" ] && v2ray_myqluser="root"
-    echo
-    echo "---------------------------"
-    echo "v2ray_myqluser = ${v2ray_myqluser}"
-    echo "---------------------------"
-    echo
-    # Set Setting if the node go downwith panel
-    echo "Setting MysqlPassword u can pass this setting if u use webapi"
-    read -p "(v2ray_mysqlpassword (Default 1):" v2ray_mysqlpassword
-    [ -z "${v2ray_mysqlpassword}" ] && v2ray_mysqlpassword=1
-    echo
-    echo "---------------------------"
-    echo "v2ray_mysqlpassword = ${v2ray_mysqlpassword}"
-    echo "---------------------------"
-    echo
-    # Set Setting if the node go downwith panel
-    echo "Setting MysqlDbname u can pass this setting u chosen use webapi"
-    read -p "(v2ray_mysqldbname (Default sspanel):" v2ray_mysqldbname
-    [ -z "${v2ray_mysqldbname}" ] && v2ray_mysqldbname="sspanel"
-    echo
-    echo "---------------------------"
-    echo "v2ray_mysqldbname = ${v2ray_mysqldbname}"
-    echo "---------------------------"
-    echo
-
 
     # Set ssrpanel speedtest function
     echo "use sspanel speedtest"
@@ -332,13 +286,6 @@ config_caddy_docker(){
     sed -i "s|speedtest:.*|speedtest: ${ssrpanel_speedtest}|"  ./docker-compose.yml
     sed -i "s|api_port:.*|api_port: ${v2ray_api_port}|" ./docker-compose.yml
     sed -i "s|downWithPanel:.*|downWithPanel: ${v2ray_downWithPanel}|" ./docker-compose.yml
-    sed -i "s|usemysql:.*|usemysql: ${v2ray_usemysql}|" ./docker-compose.yml
-    sed -i "s|PANELTYPE:.*|PANELTYPE: ${v2ray_paneltype}|" ./docker-compose.yml
-    sed -i "s|MYSQLHOST:.*|MYSQLHOST: ${v2ray_mysqlhost}|" ./docker-compose.yml
-    sed -i "s|MYSQLPORT:.*|MYSQLPORT: ${v2ray_mysqlport}|" ./docker-compose.yml
-    sed -i "s|MYSQLUSR:.*|MYSQLUSR: ${v2ray_myqluser}|" ./docker-compose.yml
-    sed -i "s|MYSQLPASSWD:.*|MYSQLPASSWD: ${v2ray_mysqlpassword}|" ./docker-compose.yml
-    sed -i "s|MYSQLDBNAME:.*|MYSQLDBNAME: ${v2ray_mysqldbname}|" ./docker-compose.yml
     sed -i "s|V2RAY_DOMAIN=xxxx.com|V2RAY_DOMAIN=${v2ray_domain}|"  ./docker-compose.yml
     sed -i "s|V2RAY_PATH=/v2ray|V2RAY_PATH=${v2ray_path}|"  ./docker-compose.yml
     sed -i "s|V2RAY_EMAIL=xxxx@outlook.com|V2RAY_EMAIL=${v2ray_email}|"  ./docker-compose.yml
