@@ -2,7 +2,7 @@ version: '2'
 
 services:
  v2ray:
-    image: okm147/hulisangv2ray_v3:go
+    image: amaharuka/rukav2ray_v3:go
     restart: always
     network_mode: "host"
     environment:
@@ -14,6 +14,8 @@ services:
       api_port: 2333
       downWithPanel: 1
       TZ: "Asia/Shanghai"
+      PANELTYPE: 0
+      usemysql: 0
     volumes:
       - /etc/localtime:/etc/localtime:ro
     logging:
