@@ -108,16 +108,8 @@ error_detect_depends(){
 
 # Pre-installation settings
 pre_install_docker_compose(){
-    echo "Which Panel Do you use SSpanel 0， SSRpanel 1"
-    read -p "(v2ray_paneltype (Default 0):" v2ray_paneltype
-    [ -z "${v2ray_paneltype}" ] && v2ray_paneltype=0
-    echo
-    echo "---------------------------"
-    echo "v2ray_paneltype = ${v2ray_paneltype}"
-    echo "---------------------------"
-    echo
     # Set ssrpanel node_id
-    echo "node_id"
+    echo "Set node_id"
     read -p "(Default value: 0 ):" ssrpanel_node_id
     [ -z "${ssrpanel_node_id}" ] && ssrpanel_node_id=0
     echo
@@ -126,18 +118,8 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
 
-
-    echo "Which connection do you prefer 0 for webapi and 1 for mysql"
-    read -p "(v2ray_usemysql (Default 0):" v2ray_usemysql
-    [ -z "${v2ray_usemysql}" ] && v2ray_usemysql=0
-    echo
-    echo "---------------------------"
-    echo "v2ray_usemysql = ${v2ray_usemysql}"
-    echo "---------------------------"
-    echo
-
       # Set ssrpanel_url
-    echo "Please sspanel_url, u can pass this setting if u use mysql"
+    echo "Please set sspanel_url"
     read -p "(There is no default value please make sure you input the right thing):" ssrpanel_url
     [ -z "${ssrpanel_url}" ]
     echo
@@ -260,8 +242,6 @@ config_docker(){
     sed -i "s|speedtest:.*|speedtest: ${ssrpanel_speedtest}|"  ./docker-compose.yml
     sed -i "s|api_port:.*|api_port: ${v2ray_api_port}|" ./docker-compose.yml
     sed -i "s|downWithPanel:.*|downWithPanel: ${v2ray_downWithPanel}|" ./docker-compose.yml
-    sed -i "s|usemysql:.*|usemysql: ${v2ray_usemysql}|" ./docker-compose.yml
-    sed -i "s|PANELTYPE:.*|PANELTYPE: ${v2ray_paneltype}|" ./docker-compose.yml
     sed -i "s|MYSQLHOST:.*|MYSQLHOST: ${v2ray_mysqlhost}|" ./docker-compose.yml
     sed -i "s|MYSQLPORT:.*|MYSQLPORT: ${v2ray_mysqlport}|" ./docker-compose.yml
     sed -i "s|MYSQLUSR:.*|MYSQLUSR: ${v2ray_myqluser}|" ./docker-compose.yml
