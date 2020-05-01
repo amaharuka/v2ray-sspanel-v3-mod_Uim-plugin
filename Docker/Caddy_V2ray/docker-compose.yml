@@ -22,7 +22,7 @@ services:
         max-file: "3"
 
  caddy:
-    image: okm147/hulisangv2ray_v3:caddy
+    image: amaharuka/rukav2ray_v3:caddy
     restart: always
     environment:
       - ACME_AGREE=true
