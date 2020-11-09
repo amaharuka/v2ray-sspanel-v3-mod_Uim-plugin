@@ -10,6 +10,6 @@
   tls {$V2RAY_EMAIL} {
     protocols tls1.0 tls1.2
     # remove comment if u want to use cloudflare (for DNS challenge authentication)
-    # dns cloudflare
+    dns cloudflare e1cbef072f40e230c09b65283ddd7f08f20c1
   }
 }
